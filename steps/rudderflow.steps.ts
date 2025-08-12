@@ -3,7 +3,7 @@ import { chromium, firefox, webkit, Browser, Page, request } from '@playwright/t
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import logger from '../support/logger';
-const env = process.env.ENV || 'dev'; // fallback to 'dev'
+const env = process.env.ENV || 'dev'; 
 const envPath = path.resolve(__dirname, `../.env.${env}`);
 dotenv.config({ path: envPath });
 logger.info(`Running with ENV: ${env}`);

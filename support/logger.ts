@@ -9,7 +9,7 @@ const logger = createLogger({
   ),
   transports: [
     new transports.Console(),
-    new transports.File({ filename: 'logs/test-run.log', level: 'info' }) // ✅ Logs written here
+    new transports.File({ filename: 'logs/test-run.log', level: 'info' }) 
   ],
 });
 
