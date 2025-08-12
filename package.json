@@ -1,0 +1,39 @@
+{
+  "name": "rudderstack-tests",
+  "version": "1.0.0",
+  "description": "Cucumber + Playwright test automation for RudderStack",
+  "main": "index.js",
+  "scripts": {
+    "test:dev": "cross-env ENV=dev cucumber-js --format json:reports/cucumber-report.json",
+    "test:qa": "cross-env ENV=qa cucumber-js --format json:reports/cucumber-report.json",
+    "report:dev": "cross-env ENV=dev node report-generator.js",
+    "report:qa": "cross-env ENV=qa node report-generator.js",
+    "test:dev:report": "npm run test:dev && npm run report:dev",
+    "test:qa:report": "npm run test:qa && npm run report:qa",
+    "clean:reports": "rimraf reports html-report"
+  },
+  "keywords": [
+    "cucumber",
+    "playwright",
+    "typescript",
+    "automation",
+    "testing",
+    "html-report"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.1.0",
+    "@playwright/test": "^1.54.2",
+    "cross-env": "^10.0.0",
+    "dotenv": "^17.2.1",
+    "multiple-cucumber-html-reporter": "^3.9.3",
+    "playwright": "^1.54.2",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "winston": "^3.17.0"
+  }
+}

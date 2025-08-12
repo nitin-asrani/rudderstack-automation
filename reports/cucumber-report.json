@@ -1,0 +1,102 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "rudderstack-flow-automation;send-event-and-verify-delivery-counts",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Send event and verify delivery counts",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have valid credentials and environment configuration",
+            "match": {
+              "location": "steps\\rudderflow.steps.ts:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3888999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I log in and navigate to connections",
+            "match": {
+              "location": "steps\\rudderflow.steps.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12155289899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I capture the dataPlane URL and write key",
+            "match": {
+              "location": "steps\\rudderflow.steps.ts:71"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2929305300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I send an event via HTTP API",
+            "match": {
+              "location": "steps\\rudderflow.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1296844799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "I open the webhook destination events tab",
+            "match": {
+              "location": "steps\\rudderflow.steps.ts:100"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2100245399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I verify delivered events count increased",
+            "match": {
+              "location": "steps\\rudderflow.steps.ts:106"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 96692163899
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "rudderstack-flow-automation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "RudderStack flow automation",
+    "tags": [],
+    "uri": "features\\rudderflow.feature"
+  }
+]

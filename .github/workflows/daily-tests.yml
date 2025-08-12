@@ -1,0 +1,37 @@
+name: Run Daily Tests
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # Every day at 1 AM UTC
+  workflow_dispatch:      # Manual trigger
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests and Generate HTML Report
+        run: npm run test:qa:report
+        env:
+          ENV: qa
+          BASE_URL: ${{ secrets.BASE_URL }}
+          LOGIN_USER: ${{ secrets.LOGIN_USER }}
+          LOGIN_PASS: ${{ secrets.LOGIN_PASS }}
+          BROWSER: chromium
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: cucumber-html-report
+          path: html-report
