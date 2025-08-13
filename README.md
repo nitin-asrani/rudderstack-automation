@@ -107,11 +107,13 @@ Runs every day at 1:00 AM UTC
 
 ```json
 "scripts": {
+  "clean:reports": "rimraf reports html-report",
   "test:dev": "cross-env ENV=dev cucumber-js --format json:reports/cucumber-report.json",
   "test:qa": "cross-env ENV=qa cucumber-js --format json:reports/cucumber-report.json",
-  "generate-report": "node report-generator.js",
-  "test:dev:report": "npm run test:dev && npm run generate-report",
-  "test:qa:report": "npm run test:qa && npm run generate-report"
+  "report:dev": "cross-env ENV=dev node report-generator.js",
+  "report:qa": "cross-env ENV=qa node report-generator.js",
+  "test:dev:report": "npm run test:dev && npm run report:dev",
+  "test:qa:report": "npm run test:qa && npm run report:qa"
 }
 ```
 
