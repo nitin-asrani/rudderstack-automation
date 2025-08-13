@@ -11,11 +11,11 @@ rudderstack-tests/
 ├── features/                # Feature files
 ├── pages/                   # Page Object Models
 ├── steps/                   # Step Definitions
-├── support/                 # Helpers (logger, locators)
+├── utils/                   # Helpers (logger, locators)
 ├── reports/                 # JSON reports
 ├── html-report/             # HTML reports
-├── .env.dev                 # Development env config
-├── .env.qa                  # QA env config
+├── environment/             # Development and QA env config
+├── logs/                    # Logs File
 ├── cucumber.js              # Cucumber configuration
 ├── report-generator.js      # HTML report generator
 ├── package.json             # Project config & scripts
@@ -141,4 +141,4 @@ Raise an issue or open a pull request for feature requests or bugs.
 
 ---
 
-**© 2025 RudderStack Automation | All rights reserved.**
+**© 2025 Nitin Asrani | All rights reserved.**
