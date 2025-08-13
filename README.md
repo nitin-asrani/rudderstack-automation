@@ -41,7 +41,7 @@ npm install
 
 ### 3. Set Up Environment Files
 
-Create environment-specific `.env` files:
+Create environment-specific `.env` files in `environment` folder at root level:
 
 #### .env.dev
 
