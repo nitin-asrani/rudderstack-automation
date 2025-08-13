@@ -2,26 +2,30 @@ name: Run Daily Tests
 
 on:
   schedule:
-    - cron: '0 1 * * *'  
-  workflow_dispatch:      
+    - cron: '0 1 * * *'  # Runs daily at 1:00 AM UTC
+  workflow_dispatch:      # Manual trigger from GitHub UI
 
 jobs:
   test:
+    name: E2E QA Tests
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: 🧰 Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'npm'
 
-      - name: Install Dependencies
+      - name: 📦 Install Dependencies
         run: npm ci
+        env:
+          NODE_ENV: ci
 
-      - name: Run Tests and Generate HTML Report
+      - name: 🚀 Run Tests and Generate HTML Report
         run: npm run test:qa:report
         env:
           ENV: qa
@@ -29,9 +33,12 @@ jobs:
           LOGIN_USER: ${{ secrets.LOGIN_USER }}
           LOGIN_PASS: ${{ secrets.LOGIN_PASS }}
           BROWSER: chromium
+          HEADLESS: true
+          NODE_ENV: ci
 
-      - name: Upload HTML Report
+      - name: 📤 Upload HTML Report
         uses: actions/upload-artifact@v4
         with:
           name: cucumber-html-report
           path: html-report
+          if-no-files-found: error
