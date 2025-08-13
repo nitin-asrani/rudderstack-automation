@@ -141,4 +141,4 @@ Raise an issue or open a pull request for feature requests or bugs.
 
 ---
 
-**© 2025 Nitin Asrani | All rights reserved.**
+**© 2025 RudderStack Automation | All rights reserved.**
