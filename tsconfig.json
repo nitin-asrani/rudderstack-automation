@@ -1,12 +1,43 @@
 {
   "compilerOptions": {
+    // JavaScript version output
     "target": "ESNext",
+
+    // Module system (CommonJS is standard for Node.js)
     "module": "CommonJS",
+
+    // Strict type checking for safer code
     "strict": true,
+
+    // Allow default imports from CommonJS modules
     "esModuleInterop": true,
+
+    // Node.js-style module resolution
     "moduleResolution": "node",
+
+    // Allow importing JSON files as modules
     "resolveJsonModule": true,
-    "outDir": "dist"
+
+    // Output directory for compiled JavaScript
+    "outDir": "dist",
+
+    // Include source maps for better debugging
+    "sourceMap": true,
+
+    // Enable modern JS module features (optional but recommended)
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Ensure clean builds
+    "noEmitOnError": true,
+
+    // Show all compiler diagnostics
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["steps/**/*.ts"]
+
+  // Files/folders to include
+  "include": ["steps/**/*.ts"],
+
+  // Optionally exclude build output and node_modules
+  "exclude": ["dist", "node_modules"]
 }

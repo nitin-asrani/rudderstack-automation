@@ -40,10 +40,11 @@ const cucumber_1 = require("@cucumber/cucumber");
 const test_1 = require("@playwright/test");
 const dotenv = __importStar(require("dotenv"));
 const path = __importStar(require("path"));
-const env = process.env.ENV || 'dev'; // fallback to 'dev'
-const envPath = path.resolve(__dirname, `../../.env.${env}`);
+const logger_1 = __importDefault(require("../utils/logger"));
+const env = process.env.ENV || 'dev';
+const envPath = path.resolve(__dirname, `../environment/.env.${env}`);
 dotenv.config({ path: envPath });
-const logger_1 = __importDefault(require("../support/logger"));
+logger_1.default.info(`Running with ENV: ${env}`);
 const LoginPage_1 = require("../pages/LoginPage");
 const MfaPage_1 = require("../pages/MfaPage");
 const NavigationPage_1 = require("../pages/NavigationPage");
@@ -133,3 +134,4 @@ let beforeDeliveredCount;
     await browser.close();
     logger_1.default.info('Test completed and browser closed.');
 });
+//# sourceMappingURL=rudderflow.steps.js.map

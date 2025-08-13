@@ -1,16 +1,17 @@
 {
   "name": "rudderstack-tests",
   "version": "1.0.0",
-  "description": "Cucumber + Playwright test automation for RudderStack",
+  "description": "Automated end-to-end testing suite using Cucumber and Playwright for RudderStack platform.",
   "main": "index.js",
+  "private": true,
   "scripts": {
+    "clean:reports": "rimraf reports html-report",
     "test:dev": "cross-env ENV=dev cucumber-js --format json:reports/cucumber-report.json",
     "test:qa": "cross-env ENV=qa cucumber-js --format json:reports/cucumber-report.json",
     "report:dev": "cross-env ENV=dev node report-generator.js",
     "report:qa": "cross-env ENV=qa node report-generator.js",
     "test:dev:report": "npm run test:dev && npm run report:dev",
-    "test:qa:report": "npm run test:qa && npm run report:qa",
-    "clean:reports": "rimraf reports html-report"
+    "test:qa:report": "npm run test:qa && npm run report:qa"
   },
   "keywords": [
     "cucumber",
@@ -20,8 +21,19 @@
     "testing",
     "html-report"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/rudderstack-tests.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/rudderstack-tests/issues"
+  },
+  "homepage": "https://github.com/your-org/rudderstack-tests#readme",
   "devDependencies": {
     "@cucumber/cucumber": "^12.1.0",
     "@playwright/test": "^1.54.2",
@@ -34,6 +46,7 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }

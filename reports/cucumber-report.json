@@ -15,11 +15,11 @@
             "line": 4,
             "name": "I have valid credentials and environment configuration",
             "match": {
-              "location": "steps\\rudderflow.steps.ts:30"
+              "location": "steps\\rudderflow.steps.ts:46"
             },
             "result": {
               "status": "passed",
-              "duration": 4384700
+              "duration": 2903899
             }
           },
           {
@@ -28,11 +28,11 @@
             "line": 7,
             "name": "I log in and navigate to connections",
             "match": {
-              "location": "steps\\rudderflow.steps.ts:37"
+              "location": "steps\\rudderflow.steps.ts:55"
             },
             "result": {
               "status": "passed",
-              "duration": 10071746699
+              "duration": 9556449200
             }
           },
           {
@@ -41,11 +41,11 @@
             "line": 8,
             "name": "I capture the dataPlane URL and write key",
             "match": {
-              "location": "steps\\rudderflow.steps.ts:71"
+              "location": "steps\\rudderflow.steps.ts:98"
             },
             "result": {
               "status": "passed",
-              "duration": 4102769000
+              "duration": 2900619500
             }
           },
           {
@@ -54,11 +54,11 @@
             "line": 9,
             "name": "I send an event via HTTP API",
             "match": {
-              "location": "steps\\rudderflow.steps.ts:76"
+              "location": "steps\\rudderflow.steps.ts:106"
             },
             "result": {
               "status": "passed",
-              "duration": 1071282599
+              "duration": 959242299
             }
           },
           {
@@ -67,11 +67,11 @@
             "line": 10,
             "name": "I open the webhook destination events tab",
             "match": {
-              "location": "steps\\rudderflow.steps.ts:100"
+              "location": "steps\\rudderflow.steps.ts:132"
             },
             "result": {
               "status": "passed",
-              "duration": 2049165499
+              "duration": 1288894599
             }
           },
           {
@@ -80,11 +80,11 @@
             "line": 11,
             "name": "I verify delivered events count increased",
             "match": {
-              "location": "steps\\rudderflow.steps.ts:106"
+              "location": "steps\\rudderflow.steps.ts:140"
             },
             "result": {
               "status": "passed",
-              "duration": 95749574300
+              "duration": 95504749500
             }
           }
         ],

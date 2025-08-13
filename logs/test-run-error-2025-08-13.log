@@ -1,0 +1,29 @@
+[2025-08-13 10:15:22] ERROR: Failed to navigate to login page: page.goto: Target page, context or browser has been closed
+Call log:
+[2m  - navigating to "https://app.rudderstack.com/", waiting until "networkidle"[22m
+
+[2025-08-13 10:15:22] ERROR: Error during login and navigation: page.goto: Target page, context or browser has been closed
+Call log:
+[2m  - navigating to "https://app.rudderstack.com/", waiting until "networkidle"[22m
+
+[2025-08-13 10:16:01] ERROR: Failed to navigate to login page: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "https://app.rudderstack.com/", waiting until "networkidle"[22m
+
+[2025-08-13 10:16:01] ERROR: Error during login and navigation: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "https://app.rudderstack.com/", waiting until "networkidle"[22m
+
+[2025-08-13 10:17:41] ERROR: Failed to navigate to Connections tab: page.waitForSelector: Target page, context or browser has been closed
+[2025-08-13 10:17:41] ERROR: Error during login and navigation: page.waitForSelector: Target page, context or browser has been closed
+[2025-08-13 10:19:05] ERROR: Failed to open webhook destination: page.waitForSelector: Target page, context or browser has been closed
+[2025-08-13 10:20:02] ERROR: Failed to navigate to login page: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "https://app.rudderstack.com/login", waiting until "networkidle"[22m
+
+[2025-08-13 10:20:02] ERROR: Error during login and navigation: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "https://app.rudderstack.com/login", waiting until "networkidle"[22m
+
+[2025-08-13 10:22:26] ERROR: Failed to go to dashboard: locator.waitFor: Target page, context or browser has been closed
+[2025-08-13 10:22:26] ERROR: Error during login and navigation: locator.waitFor: Target page, context or browser has been closed

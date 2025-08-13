@@ -1,36 +1,49 @@
-const reporter = require('multiple-cucumber-html-reporter');
-const path = require('path');
+// report-generator.js
+
 const fs = require('fs');
 const os = require('os');
+const path = require('path');
+const reporter = require('multiple-cucumber-html-reporter');
+const dotenv = require('dotenv');
 
-// Determine ENV
+// ------------------------------
+// Determine Environment
+// ------------------------------
 const env = process.env.ENV || 'dev';
+const isCI = !!process.env.GITHUB_ACTIONS;
 
-// Load environment variables from .env.[env] only when running locally
-if (!process.env.GITHUB_ACTIONS) {
-  const envPath = path.resolve(__dirname, `.env.${env}`);
-  if (fs.existsSync(envPath)) {
-    require('dotenv').config({ path: envPath });
-    console.log(`✅ Loaded local environment file: .env.${env}`);
+// ------------------------------
+// Load Local Environment Variables
+// ------------------------------
+if (!isCI) {
+  const envFilePath = path.resolve(__dirname, `./environment/.env.${env}`);
+  
+  if (fs.existsSync(envFilePath)) {
+    dotenv.config({ path: envFilePath });
+    console.log(`✅ Loaded local environment file: ${envFilePath}`);
   } else {
-    console.warn(`⚠️ .env.${env} not found`);
+    console.warn(`⚠️ Environment file not found: ${envFilePath}`);
   }
 }
 
-// Build metadata
+// ------------------------------
+// Metadata for Report
+// ------------------------------
 const metadata = {
   browser: {
     name: process.env.BROWSER || 'chromium',
     version: 'latest'
   },
-  device: process.env.GITHUB_ACTIONS ? 'GitHub Actions Runner' : os.hostname(),
+  device: isCI ? 'GitHub Actions Runner' : os.hostname(),
   platform: {
     name: process.platform,
     version: process.version
   }
 };
 
-// Build custom data
+// ------------------------------
+// Custom Data for Report
+// ------------------------------
 const customData = {
   title: 'Run Info',
   data: [
@@ -45,19 +58,29 @@ const customData = {
   ]
 };
 
-// Optional: include GitHub Actions metadata
-if (process.env.GITHUB_ACTIONS) {
-  customData.data.push({ label: 'GitHub Workflow', value: process.env.GITHUB_WORKFLOW });
-  customData.data.push({ label: 'GitHub Run ID', value: process.env.GITHUB_RUN_ID });
-  customData.data.push({ label: 'GitHub Job', value: process.env.GITHUB_JOB });
+// Add GitHub Actions metadata if running in CI
+if (isCI) {
+  customData.data.push({ label: 'GitHub Workflow', value: process.env.GITHUB_WORKFLOW || 'N/A' });
+  customData.data.push({ label: 'GitHub Run ID', value: process.env.GITHUB_RUN_ID || 'N/A' });
+  customData.data.push({ label: 'GitHub Job', value: process.env.GITHUB_JOB || 'N/A' });
 }
 
-reporter.generate({
-  jsonDir: 'reports',
-  reportPath: 'html-report',
-  metadata,
-  customData,
-  displayDuration: true,
-  pageTitle: 'Cucumber HTML Report',
-  reportName: `Cucumber Report - ${env.toUpperCase()}`
-});
+// ------------------------------
+// Generate Report
+// ------------------------------
+try {
+  reporter.generate({
+    jsonDir: 'reports',
+    reportPath: 'html-report',
+    metadata,
+    customData,
+    displayDuration: true,
+    pageTitle: 'Cucumber HTML Report',
+    reportName: `Cucumber Report - ${env.toUpperCase()}`
+  });
+
+  console.log(`✅ Cucumber HTML report generated at: ${path.resolve('html-report/index.html')}`);
+} catch (error) {
+  console.error('❌ Failed to generate report:', error.message);
+  process.exit(1);
+}

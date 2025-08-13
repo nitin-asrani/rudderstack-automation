@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\HP\\OneDrive\\Desktop\\rudderstack-tests\\logs\\.97a1dc6b0c10326391b44ae1b1634c1f0b4c97bb-audit.json",
+    "files": [
+        {
+            "date": 1755060318714,
+            "name": "C:\\Users\\HP\\OneDrive\\Desktop\\rudderstack-tests\\logs\\test-run-error-2025-08-13.log",
+            "hash": "2366e3bd2a77ed222a13878172dc5dc9200f8e72cb2e199769e4221ab318d2da"
+        }
+    ],
+    "hashType": "sha256"
+}
